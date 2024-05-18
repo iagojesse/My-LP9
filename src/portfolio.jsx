@@ -1,6 +1,5 @@
 ﻿import React from "react";
 import "./style.css";
-// Importando o arquivo JSON do diretório correto
 import imagesData from "./src/imagens/imagens.json";
 
 function PortfolioTrabalhos() {
@@ -14,12 +13,14 @@ function PortfolioTrabalhos() {
         </div>
       </header>
       <div className="sections">
-        {imagesData
+        {imagesData.images
           .filter((image) => image.name !== "foto iago jesse")
           .map((image) => (
             <section key={image.id}>
-              {/* Importando as imagens do diretório correto */}
-              <img src={require(`./src/imagens/${image.src}`)} alt={image.alt} />
+              <img
+                src={require(`./src/imagens/${image.file}`)}
+                alt={image.name}
+              />
             </section>
           ))}
       </div>
